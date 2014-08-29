@@ -1,0 +1,14 @@
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\bin\Debug\trams_web_dbupdate.exe.config
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\obj\Debug\trams_web_dbupdate.csprojResolveAssemblyReference.cache
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\bin\Debug\trams_web_dbupdate.exe
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\bin\Debug\trams_web_dbupdate.pdb
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\bin\Debug\TRAMSDataTransfer.dll
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\bin\Debug\TRAMSDataTransfer.pdb
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\obj\Debug\trams_web_dbupdate.exe
+C:\Projects\mantis\1027_TRAMS_WebPage\trams_web_dbupdate\trams_web_dbupdate\obj\Debug\trams_web_dbupdate.pdb
+C:\ADCTools\TRAMS3\bin\trams_web_dbupdate.exe.config
+C:\ADCTools\TRAMS3\bin\trams_web_dbupdate.exe
+C:\ADCTools\TRAMS3\bin\trams_web_dbupdate.pdb
+C:\Projects\trams_web_dbupdate\obj\Debug\trams_web_dbupdate.exe
+C:\Projects\trams_web_dbupdate\obj\Debug\trams_web_dbupdate.pdb
+C:\Projects\trams_web_dbupdate\obj\Debug\trams_web_dbupdate.csprojResolveAssemblyReference.cache
