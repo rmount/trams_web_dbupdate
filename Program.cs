@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 //     22-Jun-2014      Pass parameter of sTRAMSWebDir
 //     06-Jul-2014      Pass parameter of SqlServerPassword
 //     29-Aug-2014 1191 Additional parameter of bSearchAll 
+//     19-Mar-2015 1350 New method sftp
+//     13-Jul-2015 1318 Comment out clause that was causing webupdate default parameters to be overridden only if debug is on
+//     30-Dec-2020 3383 Most parameters moved to config, leaving only parameter of T3 or T4
 namespace trams_web_dbupdate
 {
     class Program
@@ -32,90 +35,38 @@ namespace trams_web_dbupdate
 
               String sFtpSite = null;
               String sAuditRoot = null;
-              String sSearchAll = null;
+              String sSearchAll = "false";
               Boolean bSearchAll = false;
+
+              String sUserName = null;
+              String sPassword  = null;
+              String sSshHostKeyFingerprint = null;
+              String sCredentials = " ";
+              Boolean bCredentials = false;
+
+
+              String sT3OrT4 = "T3";
+
+              String sVersion = "2.0";
+
 
               try {
           
-                for (int i = 0; i < args.Length; i++)
-                {
-                  string s = args[i];
+                    for (int i = 0; i < args.Length; i++)
+                    {
+                        string s = args[i];
+                        if (i == 0)
+                        {
+                            sT3OrT4 = s;
+                        }
+                    }
 
-                  if (i == 0) // F= ftp W = web interface
-                  {
-                      sForW = s; 
-                  }
+                    Console.WriteLine("sVersion = " + sVersion);
+                    Console.WriteLine("sT3OrT4 = " + sT3OrT4);
 
-                  if (sForW == "W")
-                  {
-                      if (i == 1)   //web database - sql server
-                      {
-                          sWebDB = s;
-                      }
-                      if (i == 2)
-                      {
-                          sMainDB = s;// Source database - generally TRAMS main db on I: drive
-                      }
-                      if (i == 3)
-                      {
-                          sTRAMSWebDir = s;// Source database - generally TRAMS main db on I: drive
-                      }
-                      if (i == 4)
-                      {
-                          sRefreshWebDB = s;// Refresh web db?
-                      }
-                      if (i == 5)
-                      {
-                          sDebug = s;// Debug
-                      }
-                      if (i == 6)
-                      {
-                          sPWD = s;// Debug
-                      }
-                  }
-                  if (sForW == "F")
-                  {
-                      if (i == 1)   //web database - sql server
-                      {
-                          sFtpSite = s;
-                      }
-                      if (i == 2)
-                      {
-                          sAuditRoot = s;// Source database - generally TRAMS main db on I: drive
-                      }
-                      if (i == 3)
-                      {
-                          sSearchAll = s;// Search all
-                      }
-                      if (i == 4)
-                      {
-                          sDebug = s;// Debug
-                      }
-                  }
+                    TRAMSDataTransfer.TDataTransfer tdt = new TRAMSDataTransfer.TDataTransfer();
 
-                }
-                //    Console.WriteLine("sWebDB = " + sWebDB);
-                //    Console.WriteLine("sMainDB = " + sMainDB);
-                //    Console.WriteLine("sRefreshWebDB = " + sRefreshWebDB);
-                //    Console.WriteLine("sDebug = " + sDebug);
-
-                if (sRefreshWebDB == "false") { bRefreshWebDB = false; }
-                if (sSearchAll == "true") { bSearchAll = true; }
-                if (sDebug == "true")  { bDebug = true;}
-
-                //    Console.WriteLine("bRefreshWebDB = " + bRefreshWebDB);
-                //    Console.WriteLine("bDebug = " + bDebug);
-
-                TRAMSDataTransfer.TDataTransfer tdt = new TRAMSDataTransfer.TDataTransfer();
-
-                if (sForW == "W")
-                {  
-                    bOk = tdt.bWebRefresh(sWebDB, sMainDB,sTRAMSWebDir, bRefreshWebDB, bDebug, sPWD);
-                }
-                if (sForW == "F")
-                {
-                    bOk = tdt.bFtp(sFtpSite, sAuditRoot, bSearchAll,bDebug);
-                }
+                    bOk = tdt.bWebRefresh(sT3OrT4);
 
               }
               catch (Exception e) {
